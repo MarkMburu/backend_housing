@@ -5,6 +5,9 @@ exports.up = async db => {
     await db.schema.createTable('receipt', table => {
       table.uuid('id').notNullable().defaultTo(db.raw('uuid_generate_v4()')).primary();
       table.uuid('memberId').unsigned().index().references('id').inTable('member').notNullable();
+      table.uuid('projectId').unsigned().index().references('id').inTable('project');
+      table.uuid('houseProjectId').unsigned().index().references('id').inTable('houseproject')
+      table.uuid('houseId').unsigned().index().references('id').inTable('house')
       table.integer("accountnumber").notNullable();
       table.integer('rcptno').notNullable();
       table.string("name").notNullable();
@@ -13,6 +16,7 @@ exports.up = async db => {
       table.string("phase");
       table.string("plotno");
       table.string("reason");
+      table.string("description",100);
       table.string("transref");
       table.string("entrytype").notNullable();
       table.integer('amount').notNullable();

@@ -1,7 +1,7 @@
 const knex = require("./knex");
 
 module.exports = {
-  getAllplot() {
+  getAllPlot() {
     return knex("plot");
   },
   create(data) {

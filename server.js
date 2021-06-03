@@ -41,6 +41,9 @@ const beneficairyRoutes = require("./Routes/beneficiaryRoutes");
 const receiptRoutes = require("./Routes/receiptRoutes");
 const projectRoutes = require("./Routes/projectRoutes");
 const phaseRoutes = require("./Routes/phaseRoutes");
+const plotRoutes = require("./Routes/plotRoutes");
+const houseProjectRoutes = require("./Routes/houseProjectRoutes");
+const houseRoutes = require("./Routes/houseRoutes");
 
 app.use("/", userRoutes);
 app.use("/member", memberRoutes);
@@ -48,6 +51,9 @@ app.use("/beneficiary", beneficairyRoutes);
 app.use("/receipt", receiptRoutes);
 app.use("/project", projectRoutes);
 app.use("/phase",phaseRoutes);
+app.use("/plot",plotRoutes);
+app.use("/housing",houseProjectRoutes);
+app.use("/house",houseRoutes);
 
 // Error Handler
 app.use(notFound);

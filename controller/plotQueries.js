@@ -22,8 +22,12 @@ const getPlotById = async (req, res, next) => {
 };
 const addPlot = async (req, res, next) => {
   try {
-    const Plot = await plotQueries.create(req.body);
-    return res.status(201).json(Plot);
+    let {totalplots} = req.body;
+    let{projectId,size,price,phasename,phaseId} = req.body;
+    for(let i = 1;i <= parseInt(totalplots);i++){
+       await plotQueries.create({projectId:projectId,size:size,price:price,phaseId:phaseId,plotnumber:"PLOT "+ i});
+    }
+     return res.status(201).json({"plot":" success "});
   } catch (error) {
     console.log(error);
     next(error);
